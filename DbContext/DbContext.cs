@@ -7,7 +7,7 @@ using SqlSugar;
 namespace DbContext
 {
     public class DbContext
-    {
+    { 
         private static readonly string connString = Appsetting.GetSectionValue("ConnectionStrings:Entities");//连接字符串
 
         /// <summary>
