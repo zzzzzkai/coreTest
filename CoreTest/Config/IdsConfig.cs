@@ -1,6 +1,8 @@
 ﻿using IdentityServer4.Models;
 using System.Collections.Generic;
+using System.Security.Claims;
 using IdentityServer4;
+using IdentityServer4.Test;
 
 namespace CoreTest.Config
 {
@@ -13,13 +15,6 @@ namespace CoreTest.Config
         /// 作用域
         /// </summary>
         /// <returns></returns>
-        public static IEnumerable<ApiResource> Apis =>
-            new List<ApiResource>
-            {
-                new ApiResource("api1", "My API")
-            };
-
-
         public static IEnumerable<ApiScope> ApiScope => 
             new List<ApiScope>
             {
@@ -47,9 +42,37 @@ namespace CoreTest.Config
 
                     // scopes that client has access to
                     AllowedScopes = { "api1" }
+                },
+                new Client//密码身份校验模式
+                {
+                    ClientId = "client1",
+                    AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
+                    ClientSecrets =
+                    {
+                        new Secret("secret".Sha256())
+                    },
+                    AllowedScopes = { "api1" }
                 }
+
             };
 
+        public static List<TestUser> TestUsers()
+        {
+            return new List<TestUser>
+            {
+                new TestUser()
+                {
+                    SubjectId = "1",
+                    Username = "user1",
+                    Password = "password",
+                    Claims = new List<Claim>
+                    {
+                        new Claim("name","name1"),
+                        new Claim("webs","http://baidu.com")
+                    }
+                }
+            };
+        }
 
 
 

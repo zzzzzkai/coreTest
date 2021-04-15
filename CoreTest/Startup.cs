@@ -12,6 +12,7 @@ using System.IO;
 using System.Reflection;
 using AppSetting;
 using K4os.Hash.xxHash;
+using Microsoft.AspNetCore.Connections;
 using Microsoft.IdentityModel.Tokens;
 
 
@@ -53,13 +54,10 @@ namespace CoreTest
             #region ids
 
             var builder = services.AddIdentityServer()
-                .AddDeveloperSigningCredential()        //This is for dev only scenarios when you don’t have a certificate to use.
+                .AddDeveloperSigningCredential() //This is for dev only scenarios when you don’t have a certificate to use.
                 .AddInMemoryApiScopes(IdsConfig.ApiScope)
-                .AddInMemoryClients(IdsConfig.Clients);
-
-            // .AddInMemoryApiResources(IdsConfig.Apis);
-            //.AddInMemoryIdentityResources(IdsConfig.GetIdentityResources());
-
+                .AddInMemoryClients(IdsConfig.Clients)
+                .AddTestUsers(IdsConfig.TestUsers());
 
             //ids授权
 
@@ -74,7 +72,14 @@ namespace CoreTest
                     };
                     options.RequireHttpsMetadata = false;
                 });
-
+            // 授权策略系统
+            services.AddAuthorization(x=>
+                x.AddPolicy("ApiScope",y=>
+                {
+                    y.RequireAuthenticatedUser();
+                    y.RequireClaim("scope", "api1");
+                })
+                );
 
             #endregion
 

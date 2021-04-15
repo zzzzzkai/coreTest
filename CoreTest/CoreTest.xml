@@ -9,7 +9,7 @@
             注册的验证
             </summary>
         </member>
-        <member name="P:CoreTest.Config.IdsConfig.Apis">
+        <member name="P:CoreTest.Config.IdsConfig.ApiScope">
             <summary>
             作用域
             </summary>
