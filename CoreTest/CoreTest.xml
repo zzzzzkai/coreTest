@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CoreTest</name>
+    </assembly>
+    <members>
+        <member name="T:CoreTest.Config.IdsConfig">
+            <summary>
+            注册的验证
+            </summary>
+        </member>
+        <member name="P:CoreTest.Config.IdsConfig.ApiScope">
+            <summary>
+            作用域
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:CoreTest.Config.IdsConfig.Clients">
+            <summary>
+            客户端接入的模式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:CoreTest.WeatherForecast">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>
