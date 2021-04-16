@@ -57,6 +57,7 @@ namespace CoreTest
                 .AddDeveloperSigningCredential() //This is for dev only scenarios when you don°Øt have a certificate to use.
                 .AddInMemoryApiScopes(IdsConfig.ApiScope)
                 .AddInMemoryClients(IdsConfig.Clients)
+                .AddInMemoryIdentityResources(IdsConfig.IdentityResources)
                 .AddTestUsers(IdsConfig.TestUsers());
 
             //ids ⁄»®

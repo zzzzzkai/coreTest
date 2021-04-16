@@ -14,6 +14,7 @@
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
     <PackageReference Include="IdentityServer4" Version="4.1.2" />
     <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="3.1.0" />
     <PackageReference Include="SqlSugar.IOC" Version="1.4.0" />
     <PackageReference Include="SqlSugarCore" Version="5.0.2.8" />
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.1.2" />

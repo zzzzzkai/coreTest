@@ -21,6 +21,11 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="P:CoreTest.Config.IdsConfig.IdentityResources">
+            <summary>
+            通过修改以下属性来添加对标准openid（主题ID）和profile（名字，姓氏等）范围的支持
+            </summary>
+        </member>
         <member name="T:CoreTest.WeatherForecast">
             <summary>
             
